@@ -5,6 +5,10 @@ and Tsuki (White) — play teaching games on a 9×9 board in a lantern-lit
 night garden, explaining every move. At key moments, you click the board
 and play the move yourself.
 
+## Live
+
+https://codeforcandy.github.io/grok-go/
+
 ## Run
 
 ```bash
@@ -17,6 +21,15 @@ npm run dev
 ```bash
 npm test
 ```
+
+## Deploy (GitHub Pages)
+
+```bash
+npm run deploy
+```
+
+Pushes the `dist/` build to the `gh-pages` branch. The site is served at
+`https://<username>.github.io/grok-go/` (Vite `base` is `/grok-go/`).
 
 Six lessons: the board, liberties & capture, connection & cutting,
 life & death, ko, and a complete counted game.
