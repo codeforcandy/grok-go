@@ -15,8 +15,8 @@ function setupBoard(lesson: Lesson): Board {
   const board = createBoard();
   if (!lesson.setup) return board;
   const cells = [...board.cells];
-  for (const p of lesson.setup.black) cells[toIndex(board.size, p)] = 'black';
-  for (const p of lesson.setup.white) cells[toIndex(board.size, p)] = 'white';
+  for (const p of lesson.setup.black ?? []) cells[toIndex(board.size, p)] = 'black';
+  for (const p of lesson.setup.white ?? []) cells[toIndex(board.size, p)] = 'white';
   return { ...board, cells };
 }
 

@@ -11,5 +11,16 @@ export const glossary: Record<string, string> = {
   territory: 'Empty points fenced in entirely by one color. Each counts as a point at the end.',
   'star point': 'One of the marked dots on the board — landmarks that guide opening play.',
   komi: 'Bonus points White receives as compensation for Black moving first.',
-  dame: 'Neutral empty points that belong to neither side and score nothing.'
+  dame: 'Neutral empty points that belong to neither side and score nothing.',
+  corner: 'The easiest place to build territory — the board edge fences two sides for free.',
+  corners: 'The easiest places to build territory — the board edges fence two sides for free.',
+  enclosure: 'A small wall around a corner stone that fences a chunk of territory.',
+  invasion: 'A move played inside the opponent\'s fenced area to live small or run out.',
+  extension: 'A stone placed along a side, extending from a corner or group toward more territory.',
+  influence: 'The power a stone radiates over nearby intersections — not yet secure territory.',
+  'false eye': 'An empty point that looks like an eye but leaks diagonally — it does not give life.',
+  'capturing race': 'A fight between two groups without two eyes — whoever runs out of liberties first is captured.',
+  seki: 'Mutual life — two groups cannot capture each other; shared empty points score for neither side.',
+  reduction: 'A light move that presses against enemy territory from the outside without invading.',
+  tenuki: 'To play elsewhere, leaving the local fight for bigger gain on the board.'
 };

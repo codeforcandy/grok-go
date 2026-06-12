@@ -1,4 +1,5 @@
 import { glossary } from '../lessons/glossary';
+import type { Chapter } from '../lessons/types';
 import type { Speaker } from '../lessons/types';
 
 export interface CommentBlock {
@@ -11,6 +12,7 @@ export interface UiCallbacks {
   onPrev: () => void;
   onNext: () => void;
   onToggleAuto: () => void;
+  onSelectChapter: (index: number) => void;
   onSelectLesson: (index: number) => void;
   onShowMe: () => void;
 }
@@ -34,6 +36,7 @@ export function renderText(text: string): string {
 
 export class Ui {
   private el = {
+    chapterBar: document.querySelector<HTMLElement>('#chapter-bar')!,
     chips: document.querySelector<HTMLElement>('#chips')!,
     label: document.querySelector<HTMLElement>('#panel-label')!,
     title: document.querySelector<HTMLElement>('#panel-title')!,
@@ -49,6 +52,7 @@ export class Ui {
     counter: document.querySelector<HTMLElement>('#move-counter')!
   };
 
+  private onSelectChapter: (index: number) => void;
   private onSelectLesson: (index: number) => void;
 
   constructor(callbacks: UiCallbacks) {
@@ -57,7 +61,20 @@ export class Ui {
     this.el.btnNext.addEventListener('click', callbacks.onNext);
     this.el.btnAuto.addEventListener('click', callbacks.onToggleAuto);
     this.el.quizShowMe.addEventListener('click', callbacks.onShowMe);
+    this.onSelectChapter = callbacks.onSelectChapter;
     this.onSelectLesson = callbacks.onSelectLesson;
+  }
+
+  setChapters(chapters: Chapter[], activeChapter: number): void {
+    this.el.chapterBar.replaceChildren(
+      ...chapters.map((chapter, i) => {
+        const b = document.createElement('button');
+        b.innerHTML = `${chapter.title}<span>${chapter.subtitle}</span>`;
+        b.classList.toggle('active', i === activeChapter);
+        b.addEventListener('click', () => this.onSelectChapter(i));
+        return b;
+      })
+    );
   }
 
   setLessons(titles: string[], active: number, completed: boolean[]): void {

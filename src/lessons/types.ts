@@ -43,7 +43,14 @@ export type Step = NoteStep | MoveStep | QuizStep | HighlightStep;
 export interface Lesson {
   id: string;
   title: string;
-  setup?: { black: Point[]; white: Point[] };
+  setup?: { black?: Point[]; white?: Point[] };
   firstToPlay: Color;
   steps: Step[];
+}
+
+export interface Chapter {
+  id: string;
+  title: string;
+  subtitle: string;
+  lessons: Lesson[];
 }

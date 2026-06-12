@@ -1,7 +1,12 @@
 import { play } from '../engine/board';
 import { territory } from '../engine/territory';
 import type { Color, Point } from '../engine/types';
-import { lessons } from '../lessons/index';
+import {
+  chapters,
+  firstLessonIndexOfChapter,
+  lessons,
+  locateLesson
+} from '../lessons/index';
 import { stateAfter } from '../lessons/replay';
 import type { Lesson, QuizStep, Step } from '../lessons/types';
 import { Effects } from '../render/effects';
@@ -38,7 +43,8 @@ export class App {
       onPrev: () => this.goTo(this.stepIndex - 1),
       onNext: () => this.next(),
       onToggleAuto: () => this.toggleAutoplay(),
-      onSelectLesson: (i) => this.selectLesson(i),
+      onSelectChapter: (i) => this.selectChapter(i),
+      onSelectLesson: (i) => this.selectLessonInChapter(i),
       onShowMe: () => this.revealQuizAnswer()
     });
 
@@ -58,6 +64,10 @@ export class App {
     this.refreshUi();
   }
 
+  private get location() {
+    return locateLesson(this.lessonIndex);
+  }
+
   private get lesson(): Lesson {
     return lessons[this.lessonIndex];
   }
@@ -74,15 +84,26 @@ export class App {
     return this.quizPending ? this.stepIndex - 1 : this.stepIndex;
   }
 
-  selectLesson(i: number): void {
-    this.lessonIndex = Math.max(0, Math.min(lessons.length - 1, i));
+  selectChapter(i: number): void {
+    this.lessonIndex = firstLessonIndexOfChapter(
+      Math.max(0, Math.min(chapters.length - 1, i))
+    );
+    this.goTo(0);
+  }
+
+  selectLessonInChapter(i: number): void {
+    const { chapterIndex } = this.location;
+    this.lessonIndex = firstLessonIndexOfChapter(chapterIndex) + i;
     this.goTo(0);
   }
 
   private next(): void {
     if (this.quizPending) return;
     if (this.stepIndex >= this.lesson.steps.length - 1) {
-      if (this.lessonIndex < lessons.length - 1) this.selectLesson(this.lessonIndex + 1);
+      if (this.lessonIndex < lessons.length - 1) {
+        this.lessonIndex += 1;
+        this.goTo(0);
+      }
       return;
     }
     this.goTo(this.stepIndex + 1, { animate: true });
@@ -175,6 +196,7 @@ export class App {
   private refreshUi(): void {
     const step = this.step;
     const n = this.lesson.steps.length;
+    const { chapter, chapterIndex, lessonInChapter } = this.location;
     const title =
       step.kind === 'quiz'
         ? step.title ?? 'You try'
@@ -184,13 +206,14 @@ export class App {
         ? []
         : [{ speaker: step.kind === 'highlight' ? step.speaker ?? 'narrator' : step.speaker, text: step.text }];
 
+    this.ui.setChapters(chapters, chapterIndex);
     this.ui.setLessons(
-      lessons.map((l) => l.title),
-      this.lessonIndex,
-      lessons.map((l) => this.completed.has(l.id))
+      chapter.lessons.map((l) => l.title),
+      lessonInChapter,
+      chapter.lessons.map((l) => this.completed.has(l.id))
     );
     this.ui.setStep({
-      label: `Lesson ${this.lessonIndex + 1} · ${this.lesson.title}`,
+      label: `${chapter.title} · Lesson ${lessonInChapter + 1} · ${this.lesson.title}`,
       title,
       blocks,
       counter: `Step ${this.stepIndex + 1} / ${n}`,

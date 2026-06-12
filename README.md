@@ -31,8 +31,10 @@ npm run deploy
 Pushes the `dist/` build to the `gh-pages` branch. The site is served at
 `https://<username>.github.io/grok-go/` (Vite `base` is `/grok-go/`).
 
-Six lessons: the board, liberties & capture, connection & cutting,
-life & death, ko, and a complete counted game.
+Twelve lessons across two chapters:
+
+- **Chapter 1 — The Rules:** board basics, capture, connection, life & death, ko, scoring
+- **Chapter 2 — Playing to Win:** corners first, enclosures, invasion, false eyes, capturing races, seki
 
 Built with TypeScript + Canvas 2D. No runtime dependencies.
 The rules engine in `src/engine/` is pure and reusable; lessons in
