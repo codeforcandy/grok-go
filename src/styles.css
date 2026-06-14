@@ -22,7 +22,10 @@ body {
 
 #chapter-bar {
   position: absolute; left: 18px; top: 18px;
+  max-height: 118px;
   display: flex; flex-direction: column; gap: 6px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 #chapter-bar button {
   background: var(--panel-bg); color: var(--text);
@@ -42,7 +45,9 @@ body {
 }
 
 #chips {
-  position: absolute; left: 18px; top: 132px;
+  position: absolute; left: 18px; top: 148px; bottom: 86px;
+  overflow-y: auto;
+  padding-right: 4px;
   display: flex; flex-direction: column; gap: 8px;
 }
 #chips button {
