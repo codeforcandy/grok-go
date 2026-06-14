@@ -36,6 +36,7 @@ export function renderText(text: string): string {
 
 export class Ui {
   private el = {
+    chapterHeading: document.querySelector<HTMLElement>('#chapter-heading')!,
     chapterBar: document.querySelector<HTMLElement>('#chapter-bar')!,
     chips: document.querySelector<HTMLElement>('#chips')!,
     label: document.querySelector<HTMLElement>('#panel-label')!,
@@ -66,6 +67,7 @@ export class Ui {
   }
 
   setChapters(chapters: Chapter[], activeChapter: number): void {
+    this.el.chapterHeading.textContent = `Chapters (${chapters.length})`;
     this.el.chapterBar.replaceChildren(
       ...chapters.map((chapter, i) => {
         const b = document.createElement('button');
