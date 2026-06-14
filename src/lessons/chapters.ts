@@ -23,6 +23,42 @@ import { lesson21 } from './lesson21';
 import { lesson22 } from './lesson22';
 import { lesson23 } from './lesson23';
 import { lesson24 } from './lesson24';
+import { lesson25 } from './lesson25';
+import { lesson26 } from './lesson26';
+import { lesson27 } from './lesson27';
+import { lesson28 } from './lesson28';
+import { lesson29 } from './lesson29';
+import { lesson30 } from './lesson30';
+import { lesson31 } from './lesson31';
+import { lesson32 } from './lesson32';
+import { lesson33 } from './lesson33';
+import { lesson34 } from './lesson34';
+import { lesson35 } from './lesson35';
+import { lesson36 } from './lesson36';
+import { lesson37 } from './lesson37';
+import { lesson38 } from './lesson38';
+import { lesson39 } from './lesson39';
+import { lesson40 } from './lesson40';
+import { lesson41 } from './lesson41';
+import { lesson42 } from './lesson42';
+import { lesson43 } from './lesson43';
+import { lesson44 } from './lesson44';
+import { lesson45 } from './lesson45';
+import { lesson46 } from './lesson46';
+import { lesson47 } from './lesson47';
+import { lesson48 } from './lesson48';
+import { lesson49 } from './lesson49';
+import { lesson50 } from './lesson50';
+import { lesson51 } from './lesson51';
+import { lesson52 } from './lesson52';
+import { lesson53 } from './lesson53';
+import { lesson54 } from './lesson54';
+import { lesson55 } from './lesson55';
+import { lesson56 } from './lesson56';
+import { lesson57 } from './lesson57';
+import { lesson58 } from './lesson58';
+import { lesson59 } from './lesson59';
+import { lesson60 } from './lesson60';
 
 export const chapters: Chapter[] = [
   {
@@ -48,6 +84,42 @@ export const chapters: Chapter[] = [
     title: 'Chapter 4',
     subtitle: 'Life & Death Deep Dive',
     lessons: [lesson19, lesson20, lesson21, lesson22, lesson23, lesson24]
+  },
+  {
+    id: 'chapter-5',
+    title: 'Chapter 5',
+    subtitle: 'Direction & Urgency',
+    lessons: [lesson25, lesson26, lesson27, lesson28, lesson29, lesson30]
+  },
+  {
+    id: 'chapter-6',
+    title: 'Chapter 6',
+    subtitle: 'Influence & Thickness',
+    lessons: [lesson31, lesson32, lesson33, lesson34, lesson35, lesson36]
+  },
+  {
+    id: 'chapter-7',
+    title: 'Chapter 7',
+    subtitle: 'Joseki on 9×9',
+    lessons: [lesson37, lesson38, lesson39, lesson40, lesson41, lesson42]
+  },
+  {
+    id: 'chapter-8',
+    title: 'Chapter 8',
+    subtitle: 'Ko Fighting',
+    lessons: [lesson43, lesson44, lesson45, lesson46, lesson47, lesson48]
+  },
+  {
+    id: 'chapter-9',
+    title: 'Chapter 9',
+    subtitle: 'Endgame',
+    lessons: [lesson49, lesson50, lesson51, lesson52, lesson53, lesson54]
+  },
+  {
+    id: 'chapter-10',
+    title: 'Chapter 10',
+    subtitle: 'One Full Night',
+    lessons: [lesson55, lesson56, lesson57, lesson58, lesson59, lesson60]
   }
 ];
 
