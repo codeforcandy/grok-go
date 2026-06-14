@@ -9,8 +9,8 @@ import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const statePath = join(root, '.superpowers/chapter-babysitter/STATE.json');
-const curriculumPath = join(root, '.superpowers/chapter-babysitter/CURRICULUM.md');
+const statePath = join(root, 'docs/chapter-babysitter/STATE.json');
+const curriculumPath = join(root, 'docs/chapter-babysitter/CURRICULUM.md');
 
 const state = JSON.parse(readFileSync(statePath, 'utf8'));
 const next = state.nextChapter;
@@ -60,7 +60,7 @@ AGENT INSTRUCTIONS (execute now, one chapter only):
 6. Mark chapter ${next} "done" in STATE.json, set nextChapter to ${next + 1}
 7. git commit -m "feat(chapter-${next}): ${ch.subtitle}"
 
-Skill file: .superpowers/chapter-babysitter/SKILL.md
+Skill file: docs/chapter-babysitter/SKILL.md
 Good luck. The garden grows while you sleep.
 `);
 

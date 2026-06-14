@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "repo": "codeforcandy/grok-go",
+  "nextChapter": 5,
+  "chapters": {
+    "4": { "status": "done", "subtitle": "Life & Death Deep Dive", "lessons": [19, 20, 21, 22, 23, 24] },
+    "5": { "status": "pending", "subtitle": "Direction & Urgency", "lessons": [25, 26, 27, 28, 29, 30] },
+    "6": { "status": "pending", "subtitle": "Influence & Thickness", "lessons": [31, 32, 33, 34, 35, 36] },
+    "7": { "status": "pending", "subtitle": "Joseki on 9×9", "lessons": [37, 38, 39, 40, 41, 42] },
+    "8": { "status": "pending", "subtitle": "Ko Fighting", "lessons": [43, 44, 45, 46, 47, 48] },
+    "9": { "status": "pending", "subtitle": "Endgame", "lessons": [49, 50, 51, 52, 53, 54] },
+    "10": { "status": "pending", "subtitle": "One Full Night", "lessons": [55, 56, 57, 58, 59, 60] }
+  },
+  "completedChapters": [1, 2, 3, 4],
+  "lastDeployed": "2026-06-12",
+  "notes": "Chapter 4 shipped. Background agent building 5-10. Run: npm run babysit"
+}
